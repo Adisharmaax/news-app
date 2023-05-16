@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import Head from "./Head"
 import "./header.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false)
-
+  const navigate=useNavigate();
   return (
     <>
       <Head />
@@ -35,7 +35,7 @@ const Header = () => {
                 <Link to='/reviews'>Reviews</Link>
               </li>
               <li><div className="buttonDiv">
-              <button className="buttonLogin" >login</button></div></li>
+             <a href="/signin"> <button className="buttonLogin" >login</button></a></div></li>
             </ul>
             <button className='barIcon' onClick={() => setNavbar(!navbar)}>
               {navbar ? <i className='fa fa-times'></i> : <i className='fa fa-bars'></i>}

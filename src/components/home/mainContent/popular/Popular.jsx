@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import "./popular.css"
 
 import Slider from "react-slick"
@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { popular } from "../../../../dummyData"
 import Heading from "../../../common/Heading/Heading"
+import axios from "axios"
 
 const Popular = () => {
   const settings = {
@@ -28,41 +29,68 @@ const Popular = () => {
       },
     ],
   }
+
+
+  const [content, setContent] = useState([]);
+  const fetchTrending = async () => {
+    const { data } = await axios.get(
+      `https://newsapi.org/v2/top-headlines?country=us&apiKey=d7b3a09c4eba464186969291fb98c685`
+    );
+    setContent(data.articles);
+  };
+  console.log(content);
+  // }
+  useEffect(() => {
+    fetchTrending();
+  }, []);
+
+
   return (
     <>
       <section className='popular'>
         <Heading title='Popular' />
-        <div className='content'>
-          <Slider {...settings}>
-            {popular.map((val) => {
-              return (
-                <div className='items'>
-                  <div className='box shadow'>
-                    <div className='images row'>
-                      <div className='img'>
-                        <img src={val.cover} alt='' />
+        {content.length > 0 && content[1] && (
+
+          <div className='content'>
+            <Slider {...settings}>
+              {content.map((val, i) => {
+                return (
+                  <div className='items'>
+                    <div className='box shadow'>
+                      <div className='images row'>
+                        <div className='img'>
+                          <img src={val.urlToImage} alt='' />
+                        </div>
+                        <div class='category category1'>
+                          <span>{val.source.name}</span>
+                        </div>
                       </div>
-                      <div class='category category1'>
-                        <span>{val.catgeory}</span>
-                      </div>
-                    </div>
-                    <div className='text row'>
-                      <h1 className='title'>{val.title.slice(0, 40)}...</h1>
-                      <div className='date'>
-                        <i class='fas fa-calendar-days'></i>
-                        <label>{val.date}</label>
-                      </div>
-                      <div className='comment'>
-                        <i class='fas fa-comments'></i>
-                        <label>{val.comments}</label>
+                      <div className='text row'>
+                        <h1 className='title'>{val.title.slice(0, 35)}...</h1>
+                        <div className='date'>
+                          <i class='fas fa-calendar-days'></i>
+                          <label>{val.publishedAt}</label>
+                        </div>
+                        <div className='comment'>
+                          <i class='fas fa-comments'></i>
+                          {val.author && (
+                            <label>{val.author.slice(0, 20)}...</label>
+                          )}
+                        </div>
+                        <a href={val.url} target="_blank">
+                        <div className='comment'>
+                          <i class='fas fa' style={{width:"10rem"}}>Link To Article</i>
+                        </div>
+                        </a>
                       </div>
                     </div>
                   </div>
-                </div>
-              )
-            })}
-          </Slider>
-        </div>
+                )
+              })}
+
+            </Slider>
+          </div>
+        )}
       </section>
     </>
   )

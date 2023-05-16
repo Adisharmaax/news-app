@@ -9,8 +9,8 @@ import { numberWithCommas } from "../../config/CoinsTable";
 
 const Carousel = () => {
   const [trending, setTrending] = useState([]);
-  const { currency, symbol } = CryptoState();
-
+  // const { currency, symbol } = {"INR", "$"};
+  const symbol="$",currency="INR"
   const fetchTrendingCoins = async () => {
     const { data } = await axios.get(TrendingCoins(currency));
 
@@ -21,7 +21,7 @@ const Carousel = () => {
   useEffect(() => {
     fetchTrendingCoins();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currency]);
+  }, []);
 
   const useStyles = makeStyles((theme) => ({
     carousel: {
