@@ -3,11 +3,11 @@ import React from "react"
 const SocialMedia = () => {
   return (
     <>
-      <section className='social'>
+      <section className='social'><a href="https://www.facebook.com/">
         <div className='socBox'>
           <i className='fab fa-facebook-f'></i>
           <span>12,740 Likes</span>
-        </div>
+        </div></a>
         <div className='socBox'>
           <i className='fab fa-pinterest'></i>
           <span>5,600 Fans</span>
@@ -16,10 +16,11 @@ const SocialMedia = () => {
           <i className='fab fa-twitter'></i>
           <span>8,700 Followers</span>
         </div>
+        <a href="https://www.instagram.com/">
         <div className='socBox'>
           <i className='fab fa-instagram'></i>
           <span>22,700 Followers</span>
-        </div>
+        </div></a>
         <div className='socBox'>
           <i className='fab fa-youtube'></i>
           <span>2,700 Subscriber</span>

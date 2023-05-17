@@ -66,7 +66,7 @@ const Popular = () => {
                         </div>
                       </div>
                       <div className='text row'>
-                        <h1 className='title'>{val.title.slice(0, 35)}...</h1>
+                        <h1 className='title'>{val.title.slice(0, 30)}...</h1>
                         <div className='date'>
                           <i class='fas fa-calendar-days'></i>
                           <label>{val.publishedAt}</label>

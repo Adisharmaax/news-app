@@ -36,6 +36,8 @@ const Header = () => {
               </li>
               <li><div className="buttonDiv">
              <a href="/signin"> <button className="buttonLogin" >login</button></a></div></li>
+            
+
             </ul>
             <button className='barIcon' onClick={() => setNavbar(!navbar)}>
               {navbar ? <i className='fa fa-times'></i> : <i className='fa fa-bars'></i>}

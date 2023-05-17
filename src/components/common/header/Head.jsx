@@ -22,7 +22,7 @@ export const Head = () => {
                  onClick={() => navigate("/")}/>
             </div>
             <div className="ad">
-              <Select 
+              {/* <Select 
               style={{
                 width:100,
                 height:40,
@@ -31,7 +31,7 @@ export const Head = () => {
               >
                 <MenuItem value={"light"}>light</MenuItem>
                 <MenuItem value={"dark"}>dark</MenuItem>
-              </Select>
+              </Select> */}
                 {/*<h1>News Droid</h1>*/}
             </div>
         </div>

@@ -43,15 +43,16 @@ const Ppost = () => {
                                     <div className='items'>
                                         <div className='box shadow'>
                                             <div className='images'>
-                                                <div className='img'>
-                                                    <img src={val.urlToImage} alt='' />
+                                                <div className='img'><a href={val.url} target="_blank">
+                                                    <img src={val.urlToImage} alt='' /></a>
                                                 </div>
                                                 <div class='category category1'>
-                                                    <span>{val.catgeory}</span>
+                                                    <span>{val.author}</span>
                                                 </div>
                                             </div>
                                             <div className='text'>
-                                                <h1 className='title'>{val.title.slice(0, 40)}...</h1>
+                                            <a href={val.url} target="_blank">
+                                                <h1 className='title'>{val.title.slice(0, 40)}...</h1></a>
                                                 <div className='date'>
                                                     <i class='fas fa-calendar-days'></i>
                                                     <label>{val.publishedAt}</label>
