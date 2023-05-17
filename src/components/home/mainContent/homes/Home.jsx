@@ -10,6 +10,7 @@ const Home = () => {
       <div className="container">
         {/* <Carousel /> */}
         <section className="mainContent">
+        
           <Popular/>
           <Ppost /></section>
         <section className="sideContent">

@@ -34,7 +34,7 @@ const Popular = () => {
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await axios.get(
-      `https://newsapi.org/v2/top-headlines?country=us&apiKey=d7b3a09c4eba464186969291fb98c685`
+      `https://newsapi.org/v2/top-headlines?country=us&apiKey=4352875003de4b8a9a19acbef64a2840`
     );
     setContent(data.articles);
   };
